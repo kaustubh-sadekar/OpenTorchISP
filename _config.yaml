@@ -1,0 +1,6 @@
+theme: minima
+title: How to Reverse Engineer Your Camera’s ISP using PyTorch.
+description: A fully differentiable Image Signal Processor (ISP) in PyTorch to reverse-engineer and clone camera rendering styles.
+
+header_pages:
+  about.md
