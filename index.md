@@ -45,9 +45,6 @@ A RAW file is the bag of groceries. It’s the raw sensor data—unprocessed, da
 
 Open-source libraries like [rawpy](https://letmaik.github.io/rawpy/api/rawpy.RawPy.html) can be used to read the raw image data directly from `.dng` files. Here is a code snippet you can use:
 
-<details>
-<summary><b>Click here to see the code!</b></summary>
-
 ```python
 import rawpy
 import numpy as np
@@ -69,37 +66,7 @@ with rawpy.imread(DNG_PATH) as raw:
 
     # Camera WB multipliers (if exists)
     cam_wb = raw.camera_whitebalance
-
-print(f"Raw image info: \nshape: {bayer.shape},\ndtype: {bayer.dtype},\nmin_val: {bayer.min()},\nmax_val: {bayer.max()}")
-print("--------------------")
-print("black_level_per_channel:", black)
-print("white_level:", white)
-print("color description:", raw.color_desc)
-print("raw_pattern:\n", pattern)
-print("camera_whitebalance:", cam_wb)
-
 ```
-
-**Output:**
-
-```text
-Raw image info: 
-shape: (2268, 4032),
-dtype: dtype('float32'),
-min_val: 1025.0,
-max_val: 16369.0
---------------------
-black_level_per_channel: [1023, 1023, 1023, 1023]
-white_level: 16368
-color description: b''
-raw_pattern:
- [[3 2]
- [0 1]]
-camera_whitebalance: [2.2100913524627686, 1.0, 1.454856514930725, 0.0]
-
-```
-</details>
-
 
 
 Sometimes the `color_desc` might return an empty string, but the `raw_pattern` gives us the exact 2x2 grid of the camera's Color Filter Array (CFA).
